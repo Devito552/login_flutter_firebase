@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:login_cadastro/cadastro.dart';
+import 'inicio.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -17,11 +19,17 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text,
         password: _passwordController.text,
       );
-      // Exibe uma notificação de sucesso
-      _showSnackBar('Login bem-sucedido!', Colors.green);
+
+      // Redireciona para a tela Home com a mensagem de boas-vindas
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => InicioScreen(),
+        ),
+      );
     } catch (e) {
       // Exibe uma notificação de erro
-      _showSnackBar('Erro no login, email ou senha incorretos', Colors.red);
+      _showSnackBar('Erro no login: $e', Colors.red);
     }
   }
 
@@ -44,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Bem-vindo ao login Firebase!',
+                'Bem-vindo',
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 40),
@@ -78,7 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 20),
               TextButton(
                 onPressed: () {
-                  // Implementar lógica para tela de cadastro futuramente
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CadastroScreen()),
+                  );
                 },
                 child: Text('Não tem uma conta? Cadastre-se'),
               ),
