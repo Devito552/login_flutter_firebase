@@ -1,2 +1,16 @@
-# login_flutter_firebase
-Este repositório contém um aplicativo desenvolvido em Flutter que implementa autenticação com Firebase, incluindo funcionalidades de login e cadastro de usuários. O projeto serve como um ponto de partida para desenvolvedores interessados em aprender a configurar e integrar Firebase Authentication em aplicativos Flutter.
+# login_cadastro
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
