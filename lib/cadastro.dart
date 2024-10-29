@@ -17,22 +17,23 @@ class _CadastroScreenState extends State<CadastroScreen> {
   Future<void> _register() async {
     if (_formKey.currentState!.validate()) {
       try {
+        // Tenta criar o usuário com e-mail e senha
         UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim(),
         );
 
-        // Atualizar o perfil do usuário com o nome fornecido
+        // Tenta atualizar o nome do usuário
         await userCredential.user!.updateDisplayName(_usernameController.text.trim());
         await userCredential.user!.reload();
-        userCredential = _auth.currentUser! as UserCredential;
+        _auth.currentUser; // Recarrega o usuário atualizado
 
-        // Exibe uma notificação de sucesso
+        // Exibe uma notificação de sucesso e redireciona
         _showSnackBar('Cadastro realizado com sucesso!', Colors.green);
         Navigator.pop(context); // Volta para a tela de login após o cadastro
       } catch (e) {
-        // Exibe uma notificação de erro
-        _showSnackBar('Erro no cadastro: $e', Colors.red);
+        // Exibe uma notificação de erro específico
+        _showSnackBar('Erro no cadastro: ${e.toString()}', Colors.red);
       }
     }
   }
